@@ -1,23 +1,58 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, ToastAndroid} from 'react-native';
+import {View, Text, StyleSheet, Animated, Image, Easing} from 'react-native';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {loadHome} from './HomeActions';
 import AppHeader from '../../header/AppHeader';
+import Radar from './homecomp/Radar';
 
 export class home extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.spinValue = new Animated.Value(0);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.spin();
+  }
+  spin() {
+    this.spinValue.setValue(0);
+    Animated.timing(this.spinValue, {
+      toValue: 1,
+      duration: 8000,
+      easing: Easing.linear,
+    }).start(() => this.spin());
+  }
 
   render() {
+    const spin = this.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg'],
+    });
     return (
-      <View>
+      <View style={{flex: 1}}>
         <AppHeader title={'Home'} />
         <Text>hello from home</Text>
+
+        <View
+          style={{
+            justifyContent: 'center',
+            borderColor: 'red',
+            borderwidth: 5,
+            padding: 5,
+            margin: 4,
+          }}>
+          <Animated.View
+            style={{
+              width: 227,
+              height: 200,
+              transform: [{rotate: spin}],
+              justifyContent: 'center',
+            }}>
+            <Radar speed={90} />
+          </Animated.View>
+        </View>
       </View>
     );
   }
