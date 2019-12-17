@@ -33,19 +33,21 @@ export class home extends Component {
     return (
       <View style={{flex: 1}}>
         <AppHeader title={'Home'} />
-        <Text>hello from home</Text>
 
         <View
           style={{
             justifyContent: 'center',
+            alignContent: 'center',
             borderColor: 'red',
             borderwidth: 5,
             padding: 5,
             margin: 4,
+            flex: 1,
+            backgroundColor: 'transparent',
           }}>
           <Animated.View
             style={{
-              width: 227,
+              width: 407,
               height: 200,
               transform: [{rotate: spin}],
               justifyContent: 'center',
