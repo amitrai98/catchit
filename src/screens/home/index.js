@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Animated, Image, Easing} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Animated,
+  Image,
+  Easing,
+  ToastAndroid,
+} from 'react-native';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {loadHome} from './HomeActions';
 import AppHeader from '../../header/AppHeader';
-import Radar from './homecomp/Radar';
+import HotspotConfigurator from './homecomp/HotspotConfigurator';
+import Hotspotmanager from 'react-native-hotspotmanager';
 
 export class home extends Component {
   constructor(props) {
@@ -16,6 +25,83 @@ export class home extends Component {
   componentDidMount() {
     this.spin();
   }
+
+  enableHotSpot() {
+    Hotspotmanager.enable(
+      () => {
+        ToastAndroid.show('Hotspot Enabled', ToastAndroid.SHORT);
+      },
+      err => {
+        ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
+      },
+    );
+  }
+
+  enableHotSpotWithConfig() {
+    const hotspot = {
+      SSID: 'ASSEM',
+      password: 'helloworld',
+      authAlgorithms: Hotspotmanager.auth.OPEN,
+      protocols: Hotspotmanager.protocols.WPA,
+    };
+    Hotspotmanager.create(
+      hotspot,
+      () => {
+        ToastAndroid.show('Hotspot enstablished', ToastAndroid.SHORT);
+      },
+      err => {
+        ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
+      },
+    );
+  }
+
+  fetchHotspotConfig() {
+    // config: {
+    //   ssid: string,
+    //   password: string,
+    //   status: boolean ( true means enable, false means disable )
+    //   networkId: Int
+    // }
+    Hotspotmanager.getConfig(
+      config => {
+        ToastAndroid.show('Hotspot SSID: ' + config.ssid, ToastAndroid.SHORT);
+      },
+      err => {
+        ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
+      },
+    );
+  }
+
+  disableHotSpot() {
+    Hotspotmanager.disable(
+      () => {
+        ToastAndroid.show('Hotspot Disabled', ToastAndroid.SHORT);
+      },
+      err => {
+        ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
+      },
+    );
+  }
+
+  fetchPeerList() {
+    // data: [
+    //   results: {
+    //     ip: 192.168.x.x,
+    //     mac: A3:76:E1:33:79:F3,
+    //     device: number
+    //   }
+    // ]
+    Hotspotmanager.peersList(
+      data => {
+        const peers = JSON.parse(data);
+        ToastAndroid.show(JSON.stringify(peers), ToastAndroid.SHORT);
+      },
+      err => {
+        ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
+      },
+    );
+  }
+
   spin() {
     this.spinValue.setValue(0);
     Animated.timing(this.spinValue, {
@@ -33,8 +119,14 @@ export class home extends Component {
     return (
       <View style={{flex: 1}}>
         <AppHeader title={'Home'} />
+        <HotspotConfigurator
+          enableHotspot={() => this.enableHotSpot()}
+          enableHotspotWithConfig={() => this.enableHotSpotWithConfig()}
+          fetchPeerList={() => this.fetchPeerList()}
+          disableHotspot={() => this.disableHotSpot()}
+        />
 
-        <View
+        {/* <View
           style={{
             justifyContent: 'center',
             alignContent: 'center',
@@ -54,7 +146,7 @@ export class home extends Component {
             }}>
             <Radar speed={90} />
           </Animated.View>
-        </View>
+        </View> */}
       </View>
     );
   }
