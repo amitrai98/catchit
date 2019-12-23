@@ -5,10 +5,7 @@ const FileBrowser = props => {
   const {fileSelected, canceled} = props;
   return (
     <View style={styles.container}>
-      <Text
-        style={
-          styles.headerText
-        }>{`select filsnpm install react-native-file-selector --save`}</Text>
+      <Text style={styles.headerText}>{`select fils`}</Text>
     </View>
   );
 };
