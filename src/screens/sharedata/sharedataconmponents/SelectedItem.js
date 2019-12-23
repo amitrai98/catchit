@@ -6,7 +6,7 @@ const SelectedItem = props => {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>
-        {item != undefined ? item.name : ''}
+        {item.name != undefined ? item.name : ''}
       </Text>
     </View>
   );
@@ -14,10 +14,10 @@ const SelectedItem = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
+    backgroundColor: 'green',
     paddingVertical: 10,
     paddingHorizontal: 2,
-    marginTop: 20,
+    marginTop: 10,
   },
   headerText: {
     paddingHorizontal: 20,

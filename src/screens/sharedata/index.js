@@ -5,15 +5,13 @@ import {connect} from 'react-redux';
 import {selectFile} from './SharedataActions';
 import AppHeader from '../../header/AppHeader';
 import SelectedItem from './sharedataconmponents/SelectedItem';
-import FileBrowser from './sharedataconmponents/FileBrowser';
 import DocumentPicker from 'react-native-document-picker';
 
 export class ShareData extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedItemList: [{name: 'abra'}],
-      selectFile: false,
+      selectedItemList: [],
     };
   }
 
@@ -32,7 +30,17 @@ export class ShareData extends Component {
       }
     } catch (err) {
       if (DocumentPicker.isCancel(err)) {
-        // User cancelled the picker, exit any dialogs or menus and move on
+        console.log(`user canceled ${err}`);
+        let newItems = [];
+        for (let index = 0; index < 10; index++) {
+          newItems.push({
+            uri: index,
+            type: 'image',
+            name: `file name ${index}`,
+            size: `20${index} mb`,
+          });
+        }
+        this.setState({selectedItemList: newItems});
       } else {
         throw err;
       }
@@ -45,11 +53,23 @@ export class ShareData extends Component {
     const {selectedItemList} = this.state;
     return (
       <View style={{flex: 1}}>
-        <FlatList
-          style={{flex: 1}}
-          data={selectedItemList}
-          renderItem={({item, index}) => <SelectedItem item={item} />}
-        />
+        {selectedItemList.length > 0 ? (
+          <View style={{flex: 1}}>
+            <FlatList
+              style={{flex: 1}}
+              data={selectedItemList}
+              renderItem={({item, index}) => <SelectedItem item={item} />}
+            />
+            {/* <TouchableOpacity>
+              <Text>Send File</Text>
+            </TouchableOpacity> */}
+          </View>
+        ) : (
+          <Text style={{alignSelf: 'center', marginTop: 200}}>
+            No files selected
+          </Text>
+        )}
+
         <TouchableOpacity
           onPress={() => {
             this.pickMultipleFiles();
