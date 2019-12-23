@@ -58,6 +58,7 @@ export class ShareData extends Component {
             <FlatList
               style={{flex: 1}}
               data={selectedItemList}
+              numColumns={4}
               renderItem={({item, index}) => <SelectedItem item={item} />}
             />
             {/* <TouchableOpacity>

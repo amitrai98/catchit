@@ -5123,6 +5123,21 @@ react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6, react-is
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
+react-native-document-picker@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-document-picker/-/react-native-document-picker-3.2.4.tgz#8e1801ba9b81f42f928e8e5e519c3d8e1320cfab"
+  integrity sha512-5l0/fkgasUZdIk9jUUkReDtNCQn2yg1+BrMPHMt45c/NVmE15ThnhIuDj8/n8h1F1RlhUb3SzF86ANK4OdZAiQ==
+
+react-native-fast-image@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-7.0.2.tgz#e06b21f42f4a9786eaa86f3db35d919070fb8403"
+  integrity sha512-MfuzJbC0RjYobR2gFCdqe1I7jvNOCfDkjQ7VGOHXniqjohhULMkcWNBE9Umovi9Dx93lJ6t5utcE2wf/09zvlg==
+
+react-native-floating-action@^1.19.1:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/react-native-floating-action/-/react-native-floating-action-1.19.1.tgz#fc3dcd0441ecbaf2d870b71f6db27f2db0f811b3"
+  integrity sha512-6zgiCJyV63TOxpDKK+OxzhghMcBSn1Qhjb8p8TrfrUGAkzh7gQcmNN4ahq1CVbrN0ZpKhWET68WeifisYnQWyg==
+
 react-native-gesture-handler@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.5.2.tgz#281111550bf1eee10b7feba5278d142169892731"
@@ -5133,10 +5148,10 @@ react-native-gesture-handler@^1.5.2:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-hotspotmanager@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-hotspotmanager/-/react-native-hotspotmanager-1.0.0.tgz#964ef72f50b1ddbb3175af486413949270f025bc"
-  integrity sha512-AwOIiKuICoXBJ2lAo3SlDucxVBUgDX/T0el1LE+ah0Cht24CAGLDH9bjJUIguLNSuz4NLCTqUZFGSd6fCpB1Uw==
+react-native-hotspotmanager@^1.0.3:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-hotspotmanager/-/react-native-hotspotmanager-1.0.5.tgz#8aee8f7b5a7af1fdb8a78bdc08f5624a921c1e52"
+  integrity sha512-LaUvzpaGtVtNTDyMVRoaTCz5immOEo7rko6VZVbL89rewr9Hr3oZaNdKPlX80fVewrXTKMdLumkaFGHZBfMWhg==
 
 react-native-reanimated@^1.4.0:
   version "1.4.0"
