@@ -32,7 +32,7 @@ export class ShareData extends Component {
       if (DocumentPicker.isCancel(err)) {
         console.log(`user canceled ${err}`);
         let newItems = [];
-        for (let index = 0; index < 10; index++) {
+        for (let index = 1; index <= 100; index++) {
           newItems.push({
             uri: index,
             type: 'image',
@@ -61,9 +61,26 @@ export class ShareData extends Component {
               numColumns={4}
               renderItem={({item, index}) => <SelectedItem item={item} />}
             />
-            {/* <TouchableOpacity>
-              <Text>Send File</Text>
-            </TouchableOpacity> */}
+            <TouchableOpacity
+              style={{
+                paddingHorizontal: 5,
+                position: 'absolute',
+                left: '35%',
+                bottom: 0,
+              }}>
+              <Text
+                style={{
+                  backgroundColor: 'green',
+                  paddingHorizontal: 20,
+                  paddingVertical: 10,
+                  borderRadius: 10,
+                  alignSelf: 'center',
+                  margin: 10,
+                  color: 'white',
+                }}>
+                Send File
+              </Text>
+            </TouchableOpacity>
           </View>
         ) : (
           <Text style={{alignSelf: 'center', marginTop: 200}}>
@@ -80,7 +97,7 @@ export class ShareData extends Component {
             height: 50,
             width: 50,
             borderRadius: 25,
-            backgroundColor: 'red',
+            backgroundColor: '#347083',
             position: 'absolute',
             right: 0,
             bottom: 0,
