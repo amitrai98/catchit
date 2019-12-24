@@ -47,7 +47,16 @@ export class ShareData extends Component {
     }
   }
 
-  showFileBrowser() {}
+  removeFile(file, index) {
+    if (file != undefined) {
+      let array = [...this.state.selectedItemList];
+      let index = array.indexOf(file);
+      if (index !== -1) {
+        array.splice(index, 1);
+        this.setState({selectedItemList: array});
+      }
+    }
+  }
 
   showSelectedFiles() {
     const {selectedItemList} = this.state;
@@ -58,7 +67,13 @@ export class ShareData extends Component {
             <FlatList
               data={selectedItemList}
               numColumns={4}
-              renderItem={({item, index}) => <SelectedItem item={item} />}
+              renderItem={({item, index}) => (
+                <SelectedItem
+                  item={item}
+                  index={index}
+                  removeFile={(file, index) => this.removeFile(file, index)}
+                />
+              )}
             />
             <TouchableOpacity
               style={{
@@ -77,7 +92,7 @@ export class ShareData extends Component {
                   margin: 10,
                   color: 'white',
                 }}>
-                {selectedItemList.length > 1 ? 'Send Files' : 'Send File'}
+                {selectedItemList.length > 1 ? 'Share Files' : 'Share File'}
               </Text>
             </TouchableOpacity>
           </View>

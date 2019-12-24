@@ -1,11 +1,15 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 const SelectedItem = props => {
-  const {item} = props;
+  const {item, index, removeFile} = props;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() =>
+        removeFile != undefined ? removeFile(item, index) : null
+      }>
       <FastImage
         style={{width: 80, height: 80, alignSelf: 'center'}}
         source={{
@@ -18,7 +22,7 @@ const SelectedItem = props => {
       <Text style={styles.headerText}>
         {item.name != undefined ? item.name : ''}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
