@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {showQrCode} from './ShowqrActions';
 import AppHeader from '../../header/AppHeader';
+import QRCode from 'react-native-qrcode-svg';
 
 export class ShowQr extends Component {
   constructor(props) {
@@ -14,6 +15,9 @@ export class ShowQr extends Component {
     return (
       <View>
         <AppHeader title={`Show QR`} />
+        <View style={{alignSelf: 'center', marginTop: 200}}>
+          <QRCode value="https://github.com/amitrai98" />
+        </View>
       </View>
     );
   }
