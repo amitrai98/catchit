@@ -32,7 +32,7 @@ export class ShareData extends Component {
       if (DocumentPicker.isCancel(err)) {
         console.log(`user canceled ${err}`);
         let newItems = [];
-        for (let index = 1; index <= 100; index++) {
+        for (let index = 1; index <= 15; index++) {
           newItems.push({
             uri: index,
             type: 'image',
@@ -52,11 +52,10 @@ export class ShareData extends Component {
   showSelectedFiles() {
     const {selectedItemList} = this.state;
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: '#959595'}}>
         {selectedItemList.length > 0 ? (
-          <View style={{flex: 1}}>
+          <View style={{flex: 1, backgroundColor: 'transparent'}}>
             <FlatList
-              style={{flex: 1}}
               data={selectedItemList}
               numColumns={4}
               renderItem={({item, index}) => <SelectedItem item={item} />}
@@ -78,7 +77,7 @@ export class ShareData extends Component {
                   margin: 10,
                   color: 'white',
                 }}>
-                Send File
+                {selectedItemList.length > 1 ? 'Send Files' : 'Send File'}
               </Text>
             </TouchableOpacity>
           </View>
