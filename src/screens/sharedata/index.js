@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  UIManager,
+  LayoutAnimation,
+} from 'react-native';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {selectFile} from './SharedataActions';
@@ -7,6 +15,8 @@ import AppHeader from '../../header/AppHeader';
 import SelectedItem from './sharedataconmponents/SelectedItem';
 import DocumentPicker from 'react-native-document-picker';
 
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
 export class ShareData extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +24,24 @@ export class ShareData extends Component {
       selectedItemList: [],
     };
   }
+
+  setAnimation = () => {
+    LayoutAnimation.configureNext({
+      duration: 250,
+      update: {
+        type: LayoutAnimation.Types.easeIn,
+        springDamping: 0.7,
+      },
+    });
+    LayoutAnimation.configureNext({
+      duration: 500,
+      create: {
+        type: LayoutAnimation.Types.easeIn,
+        property: LayoutAnimation.Properties.scaleXY,
+        springDamping: 0.7,
+      },
+    });
+  };
 
   async pickMultipleFiles() {
     try {
@@ -58,10 +86,16 @@ export class ShareData extends Component {
     }
   }
 
+  sendfiles() {
+    let array = [...this.state.selectedItemList];
+    array.splice(0, array.length);
+    this.setState({selectedItemList: array});
+  }
+
   showSelectedFiles() {
     const {selectedItemList} = this.state;
     return (
-      <View style={{flex: 1, backgroundColor: '#959595'}}>
+      <View style={{flex: 1, backgroundColor: '#959999'}}>
         {selectedItemList.length > 0 ? (
           <View style={{flex: 1, backgroundColor: 'transparent'}}>
             <FlatList
@@ -76,6 +110,7 @@ export class ShareData extends Component {
               )}
             />
             <TouchableOpacity
+              onPress={() => this.sendfiles()}
               style={{
                 paddingHorizontal: 5,
                 position: 'absolute',
