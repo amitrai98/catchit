@@ -6,6 +6,7 @@ import Signup from '../screens/signup';
 import AuthLoadingScreen from './AuthLoading';
 import SheareData from '../screens/sharedata';
 import ShowQr from '../screens/showqr';
+import {ScanQr} from '../screens/scanqr';
 let navigationOptions = {
   headerMode: 'none',
   header: null,
@@ -16,6 +17,7 @@ const AppStack = createStackNavigator(
     home: {screen: home},
     sheareData: {screen: SheareData},
     showQr: {screen: ShowQr},
+    scanQr: {screen: ScanQr},
   },
   {
     initialRouteName: 'home',

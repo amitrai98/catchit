@@ -115,6 +115,10 @@ export class home extends Component {
     this.props.navigation.navigate('showQr');
   }
 
+  scanQR() {
+    this.props.navigation.navigate('scanQr');
+  }
+
   render() {
     const spin = this.spinValue.interpolate({
       inputRange: [0, 1],
@@ -129,6 +133,9 @@ export class home extends Component {
           fetchPeerList={() => this.fetchPeerList()}
           disableHotspot={() => this.disableHotSpot()}
           showQR={() => this.showQR()}
+          scanQR={() => {
+            this.scanQR();
+          }}
         />
 
         {/* <View

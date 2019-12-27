@@ -15,35 +15,14 @@ export class ShowQr extends Component {
     this.state = {};
   }
 
-  onSuccess = e => {
-    Linking.openURL(e.data).catch(err =>
-      console.error('An error occured', err),
-    );
-  };
-
   render() {
     return (
       <View>
         <AppHeader title={`Show QR`} />
         <View style={{alignSelf: 'center', margin: 100}}>
-          {/* <QRCode value="https://github.com/amitrai98" /> */}
+          <QRCode value="https://github.com/amitrai98" />
 
           {/* <CameraScreen /> */}
-          <QRCodeScanner
-            onRead={this.onSuccess.bind(this)}
-            topContent={
-              <Text style={styles.centerText}>
-                Go to{' '}
-                <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text>{' '}
-                on your computer and scan the QR code.
-              </Text>
-            }
-            bottomContent={
-              <TouchableOpacity style={styles.buttonTouchable}>
-                <Text style={styles.buttonText}>OK. Got it!</Text>
-              </TouchableOpacity>
-            }
-          />
         </View>
       </View>
     );

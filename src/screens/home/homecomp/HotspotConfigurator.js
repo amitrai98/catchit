@@ -8,6 +8,7 @@ const HotspotConfigurator = props => {
     fetchPeerList,
     disableHotspot,
     showQR,
+    scanQR,
   } = props;
   return (
     <View style={styles.container}>
@@ -36,6 +37,11 @@ const HotspotConfigurator = props => {
         onPress={() => showQR()}
         style={styles.enableHotspotButton}>
         <Text style={styles.headerText}>{`Show Qr`}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => scanQR()}
+        style={styles.enableHotspotButton}>
+        <Text style={styles.headerText}>{`Scan Qr`}</Text>
       </TouchableOpacity>
     </View>
   );
