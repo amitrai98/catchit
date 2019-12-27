@@ -7,11 +7,20 @@ import AppHeader from '../../header/AppHeader';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Thumbnail from '../common/Thumbnail';
 import {upload} from '../../assets/icons/upload.png';
+import images from '../../assets/images';
 
 export class ConnectionManager extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  initiateSender() {
+    this.props.navigation.navigate('sheareData');
+  }
+
+  initiateReceiver() {
+    this.props.navigation.navigate('receiver');
   }
 
   render() {
@@ -28,11 +37,16 @@ export class ConnectionManager extends Component {
             alignContent: 'center',
           }}>
           <Thumbnail
-            imageuri={`https://unsplash.it/400/400?image=1`}
+            onPress={() => this.initiateSender()}
+            imageuri={images.upload}
             text={`Send Data`}
-            thbg={'red'}
           />
-          <Thumbnail text={`Receive Data`} thbg={'red'} />
+          <Thumbnail
+            onPress={() => this.initiateReceiver()}
+            imageuri={images.download}
+            text={`Receive Data`}
+            thbg={'transparent'}
+          />
         </View>
       </View>
     );

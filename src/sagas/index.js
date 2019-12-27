@@ -6,6 +6,7 @@ import {watchSelectFileRequest} from '../screens/sharedata/SharedataSaga';
 import {watchShowQrCodeRequst} from '../screens/showqr/ShowqrSaga';
 import {watchQrScanRequest} from '../screens/scanqr/ScanqrSaga';
 import {watchDiscoverPeersRequest} from '../screens/connectionmanager/ConnectionManagerSaga';
+import {watchIntiateReceiverRequest} from '../screens/receiver/ReceiverSaga';
 
 export default function* rootSaga() {
   yield all([
@@ -16,5 +17,6 @@ export default function* rootSaga() {
     watchShowQrCodeRequst(),
     watchQrScanRequest(),
     watchDiscoverPeersRequest(),
+    watchIntiateReceiverRequest(),
   ]);
 }

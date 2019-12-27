@@ -18,6 +18,8 @@ const Thumbnail = props => {
 
   return (
     <TouchableOpacity
+      disabled={onPress == undefined ? true : false}
+      onPress={() => (onPress != undefined ? onPress() : null)}
       style={[
         styles.container,
         {
@@ -50,7 +52,7 @@ const getSource = imageuri => {
       priority: FastImage.priority.normal,
     };
   } else {
-    return require('../../assets/icons/download.png');
+    return imageuri;
   }
 };
 

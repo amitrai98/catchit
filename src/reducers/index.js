@@ -5,6 +5,7 @@ import SharedataReducer from '../screens/sharedata/SharedataReducer';
 import ShowqrReducer from '../screens/showqr/ShowqrReducer';
 import ScanqrReducer from '../screens/scanqr/ScanqrReducer';
 import ConnectionManagerReducer from '../screens/connectionmanager/ConnectionManagerReducer';
+import ReceiverReducer from '../screens/receiver/ReceiverReducer';
 
 export {
   LoginReducer,
@@ -14,4 +15,5 @@ export {
   ShowqrReducer,
   ScanqrReducer,
   ConnectionManagerReducer,
+  ReceiverReducer,
 };
