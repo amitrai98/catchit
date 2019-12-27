@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 80,
   },
   enableHotspotButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#468189',
     marginHorizontal: '10%',
     marginTop: 30,
     borderRadius: 5,

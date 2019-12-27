@@ -4,6 +4,7 @@ import SignupReducer from '../screens/signup/SignupReducer';
 import SharedataReducer from '../screens/sharedata/SharedataReducer';
 import ShowqrReducer from '../screens/showqr/ShowqrReducer';
 import ScanqrReducer from '../screens/scanqr/ScanqrReducer';
+import ConnectionManagerReducer from '../screens/connectionmanager/ConnectionManagerReducer';
 
 export {
   LoginReducer,
@@ -12,4 +13,5 @@ export {
   SharedataReducer,
   ShowqrReducer,
   ScanqrReducer,
+  ConnectionManagerReducer,
 };

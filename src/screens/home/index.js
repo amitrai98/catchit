@@ -91,15 +91,16 @@ export class home extends Component {
     //     device: number
     //   }
     // ]
-    Hotspotmanager.peersList(
-      data => {
-        const peers = JSON.parse(data);
-        ToastAndroid.show(JSON.stringify(peers), ToastAndroid.SHORT);
-      },
-      err => {
-        ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
-      },
-    );
+    this.props.navigation.navigate('connectionManager');
+    // Hotspotmanager.peersList(
+    //   data => {
+    //     const peers = JSON.parse(data);
+    //     ToastAndroid.show(JSON.stringify(peers), ToastAndroid.SHORT);
+    //   },
+    //   err => {
+    //     ToastAndroid.show(err.toString(), ToastAndroid.SHORT);
+    //   },
+    // );
   }
 
   spin() {
