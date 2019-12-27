@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {isvalidURL} from '../../util/Utility';
 
 const Thumbnail = props => {
   const {
@@ -10,6 +11,7 @@ const Thumbnail = props => {
     textColor,
     thumbnailImageUri,
     onPress,
+    imageuri,
     thbg,
     resizeAuto,
   } = props;
@@ -31,11 +33,25 @@ const Thumbnail = props => {
           height: getHeight(text, resizeAuto),
           alignSelf: 'center',
         }}
+        source={getSource(imageuri)}
         resizeMode={'center'}
       />
+
       {text != undefined ? <Text style={styles.headerText}>{text}</Text> : null}
     </TouchableOpacity>
   );
+};
+
+const getSource = imageuri => {
+  if (isvalidURL(imageuri)) {
+    return {
+      uri: imageuri,
+      headers: {Authorization: 'someAuthToken'},
+      priority: FastImage.priority.normal,
+    };
+  } else {
+    return require('../../assets/icons/download.png');
+  }
 };
 
 const getWidth = (text, resizeAuto) => {

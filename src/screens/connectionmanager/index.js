@@ -6,6 +6,7 @@ import {discoverPeers} from './ConnectionManagerActions';
 import AppHeader from '../../header/AppHeader';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Thumbnail from '../common/Thumbnail';
+import {upload} from '../../assets/icons/upload.png';
 
 export class ConnectionManager extends Component {
   constructor(props) {
@@ -26,7 +27,11 @@ export class ConnectionManager extends Component {
             justifyContent: 'space-evenly',
             alignContent: 'center',
           }}>
-          <Thumbnail text={`Send Data`} thbg={'red'} />
+          <Thumbnail
+            imageuri={`https://unsplash.it/400/400?image=1`}
+            text={`Send Data`}
+            thbg={'red'}
+          />
           <Thumbnail text={`Receive Data`} thbg={'red'} />
         </View>
       </View>
