@@ -31,7 +31,7 @@ export class Receiver extends Component {
   }
 
   scanQR() {
-    console.log(`start scan`);
+    this.props.navigation.navigate('scanQr');
   }
   render() {
     const spin = this.spinValue.interpolate({
@@ -41,7 +41,7 @@ export class Receiver extends Component {
 
     return (
       <View style={{flex: 1, justifyContent: 'center'}}>
-        <TouchableOpacity onpres={() => this.scanQR()}>
+        <TouchableOpacity onPress={() => this.scanQR()}>
           <Text
             style={{
               paddingHorizontal: 10,
