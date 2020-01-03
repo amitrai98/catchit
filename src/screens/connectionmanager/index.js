@@ -4,9 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {discoverPeers} from './ConnectionManagerActions';
 import AppHeader from '../../header/AppHeader';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import Thumbnail from '../common/Thumbnail';
-import {upload} from '../../assets/icons/upload.png';
 import images from '../../assets/images';
 
 export class ConnectionManager extends Component {
@@ -16,7 +14,7 @@ export class ConnectionManager extends Component {
   }
 
   initiateSender() {
-    this.props.navigation.navigate('sheareData');
+    this.props.navigation.navigate('showQr');
   }
 
   initiateReceiver() {
@@ -25,28 +23,33 @@ export class ConnectionManager extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{backgroundColor: 'rgb(229,229,229)', flex: 1}}>
         <AppHeader title={`Connect`} />
 
         <View
           style={{
-            marginHorizontal: 10,
             flexDirection: 'row',
             paddingVertical: 20,
             justifyContent: 'space-evenly',
             alignContent: 'center',
           }}>
-          <Thumbnail
-            onPress={() => this.initiateSender()}
-            imageuri={images.upload}
-            text={`Send Data`}
-          />
-          <Thumbnail
-            onPress={() => this.initiateReceiver()}
-            imageuri={images.download}
-            text={`Receive Data`}
-            thbg={'transparent'}
-          />
+          <View style={{backgroundColor: 'white'}}>
+            <Thumbnail
+              onPress={() => this.initiateSender()}
+              imageuri={images.upload}
+              text={`Send Data`}
+              thbg={'transparent'}
+            />
+          </View>
+
+          <View style={{backgroundColor: 'white'}}>
+            <Thumbnail
+              onPress={() => this.initiateReceiver()}
+              imageuri={images.download}
+              text={`Receive Data`}
+              thbg={'transparent'}
+            />
+          </View>
         </View>
       </View>
     );

@@ -13,7 +13,10 @@ const SelectedItem = props => {
       <FastImage
         style={{width: 80, height: 80, alignSelf: 'center'}}
         source={{
-          uri: 'https://unsplash.it/400/400?image=1',
+          uri:
+            item != undefined && item.uri != undefined
+              ? item.uri
+              : 'https://unsplash.it/400/400?image=1',
           headers: {Authorization: 'someAuthToken'},
           priority: FastImage.priority.normal,
         }}

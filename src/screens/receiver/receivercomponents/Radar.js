@@ -13,7 +13,7 @@ const Radar = props => {
         borderRightWidth: 80,
         borderRightColor: 'transparent',
         borderTopWidth: 180,
-        borderTopColor: 'green',
+        borderTopColor: 'rgba(176,196,222,0.7)',
         borderRadius: 160,
         alignSelf: 'center',
       }}

@@ -48,6 +48,7 @@ export class ShareData extends Component {
       const results = await DocumentPicker.pickMultiple({
         type: [DocumentPicker.types.images],
       });
+      let newItems = [...this.state.selectedItemList];
       for (const res of results) {
         console.log(
           res.uri,
@@ -55,19 +56,21 @@ export class ShareData extends Component {
           res.name,
           res.size,
         );
+        newItems.push(res);
       }
+      this.setState({selectedItemList: newItems});
     } catch (err) {
       if (DocumentPicker.isCancel(err)) {
         console.log(`user canceled ${err}`);
         let newItems = [];
-        for (let index = 1; index <= 15; index++) {
-          newItems.push({
-            uri: index,
-            type: 'image',
-            name: `file name ${index}`,
-            size: `20${index} mb`,
-          });
-        }
+        // for (let index = 1; index <= 15; index++) {
+        //   newItems.push({
+        //     uri: index,
+        //     type: 'image',
+        //     name: `file name ${index}`,
+        //     size: `20${index} mb`,
+        //   });
+        // }
         this.setState({selectedItemList: newItems});
       } else {
         throw err;

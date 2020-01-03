@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {isvalidURL} from '../../util/Utility';
+import Ripple from 'react-native-material-ripple';
 
 const Thumbnail = props => {
   const {
@@ -17,30 +18,35 @@ const Thumbnail = props => {
   } = props;
 
   return (
-    <TouchableOpacity
-      disabled={onPress == undefined ? true : false}
-      onPress={() => (onPress != undefined ? onPress() : null)}
-      style={[
-        styles.container,
-        {
-          width: getWidth(text, resizeAuto),
-          height: getHeight(text, resizeAuto),
-          alignSelf: 'center',
-          backgroundColor: thbg != undefined ? thbg : 'transparent',
-        },
-      ]}>
-      <FastImage
-        style={{
-          width: getWidth(text, resizeAuto),
-          height: getHeight(text, resizeAuto),
-          alignSelf: 'center',
-        }}
-        source={getSource(imageuri)}
-        resizeMode={'center'}
-      />
+    <Ripple
+      style={{padding: 20}}
+      onPress={() => (onPress != undefined ? onPress() : null)}>
+      <View
+        disabled={onPress == undefined ? true : false}
+        style={[
+          styles.container,
+          {
+            width: getWidth(text, resizeAuto),
+            height: getHeight(text, resizeAuto),
+            alignSelf: 'center',
+            backgroundColor: thbg != undefined ? thbg : 'transparent',
+          },
+        ]}>
+        <FastImage
+          style={{
+            width: getWidth(text, resizeAuto),
+            height: getHeight(text, resizeAuto),
+            alignSelf: 'center',
+          }}
+          source={getSource(imageuri)}
+          resizeMode={'center'}
+        />
 
-      {text != undefined ? <Text style={styles.headerText}>{text}</Text> : null}
-    </TouchableOpacity>
+        {text != undefined ? (
+          <Text style={styles.headerText}>{text}</Text>
+        ) : null}
+      </View>
+    </Ripple>
   );
 };
 
