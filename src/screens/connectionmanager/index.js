@@ -18,7 +18,7 @@ export class ConnectionManager extends Component {
   }
 
   initiateReceiver() {
-    this.props.navigation.navigate('receiver');
+    this.props.navigation.navigate('home');
   }
 
   render() {

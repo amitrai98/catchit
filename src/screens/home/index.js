@@ -24,6 +24,7 @@ export class home extends Component {
 
   componentDidMount() {
     this.spin();
+    this.enableHotSpot();
   }
 
   enableHotSpot() {
