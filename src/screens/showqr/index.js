@@ -9,13 +9,16 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera, FaceDetector} from 'react-native-camera';
 import CameraScreen from './CameraScreen';
 import Hotspotmanager from 'react-native-hotspotmanager';
+import {getUniqueGroupName} from '../../util/Utility';
 
 export class ShowQr extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(`${getUniqueGroupName()}`);
+  }
 
   render() {
     return (

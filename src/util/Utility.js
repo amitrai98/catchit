@@ -10,3 +10,7 @@ export const isvalidURL = str => {
   ); // fragment locator
   return !!pattern.test(str);
 };
+
+export const getUniqueGroupName = () => {
+  return new Date().getTime().toString();
+};
