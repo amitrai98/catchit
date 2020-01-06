@@ -6,6 +6,7 @@ import {discoverPeers} from './ConnectionManagerActions';
 import AppHeader from '../../header/AppHeader';
 import Thumbnail from '../common/Thumbnail';
 import images from '../../assets/images';
+import CryptoJS from 'react-native-crypto-js';
 
 export class ConnectionManager extends Component {
   constructor(props) {
@@ -14,7 +15,20 @@ export class ConnectionManager extends Component {
   }
 
   initiateSender() {
-    this.props.navigation.navigate('showQr');
+    // this.props.navigation.navigate('showQr');
+
+    // Encrypt
+    let ciphertext = CryptoJS.AES.encrypt(
+      'my IMPORTANT message',
+      'secret key 123',
+    ).toString();
+    console.log(ciphertext); // 'my message'
+
+    // Decrypt
+    let bytes = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
+    let originalText = bytes.toString(CryptoJS.enc.Utf8);
+
+    console.log(originalText); // 'my message'
   }
 
   initiateReceiver() {

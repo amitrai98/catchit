@@ -5377,6 +5377,13 @@ react-native-hotspotmanager@^1.0.3:
   resolved "https://registry.yarnpkg.com/react-native-hotspotmanager/-/react-native-hotspotmanager-1.0.5.tgz#8aee8f7b5a7af1fdb8a78bdc08f5624a921c1e52"
   integrity sha512-LaUvzpaGtVtNTDyMVRoaTCz5immOEo7rko6VZVbL89rewr9Hr3oZaNdKPlX80fVewrXTKMdLumkaFGHZBfMWhg==
 
+react-native-material-ripple@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/react-native-material-ripple/-/react-native-material-ripple-0.9.1.tgz#db1ad9dd7cf97011e4cd8475ae2041ade0f891cb"
+  integrity sha512-dHjARdKoGD3LXwPh2TkURabywM5BfdpKc/AHplJTfBMalhVZ2bc7iJoJmNhNnmT/TZ+B3szL6uV1mO7Pv8zNeA==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-permissions@^2.0.2, react-native-permissions@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-2.0.8.tgz#e6d20a7b6e3df5333a3d80cc83024686fa2f49e3"
@@ -5434,6 +5441,11 @@ react-native-svg@^9.13.6:
   dependencies:
     css-select "^2.0.2"
     css-tree "^1.0.0-alpha.37"
+
+react-native-wifi-p2p@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-wifi-p2p/-/react-native-wifi-p2p-1.0.1.tgz#74baacd35dbf57d29813709611fbf80e7744048a"
+  integrity sha512-AT2oD1oj3A1DtA6uIK6ODPOmHZ/fZdXvb4uWDzsVisNXmhyuNj5rSpWpQuWHOMeg5k/RkLvKtoJYXV0XuF+CWw==
 
 react-native@0.61.5:
   version "0.61.5"

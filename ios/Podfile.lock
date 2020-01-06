@@ -203,6 +203,10 @@ PODS:
     - React
   - react-native-hotspotmanager (1.0.3):
     - React
+  - react-native-randombytes (3.5.3):
+    - React
+  - react-native-udp (2.7.0):
+    - React
   - React-RCTActionSheet (0.61.5):
     - React-Core/RCTActionSheetHeaders (= 0.61.5)
   - React-RCTAnimation (0.61.5):
@@ -244,6 +248,8 @@ PODS:
     - SDWebImageWebPCoder (~> 0.2.3)
   - RNGestureHandler (1.5.2):
     - React
+  - RNOS (1.2.6):
+    - React
   - RNPermissions (2.0.8):
     - React
   - RNReanimated (1.4.0):
@@ -258,6 +264,8 @@ PODS:
   - SDWebImageWebPCoder (0.2.5):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.0)
+  - TcpSockets (3.3.2):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -280,6 +288,8 @@ DEPENDENCIES:
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-hotspotmanager (from `../node_modules/react-native-hotspotmanager`)
+  - react-native-randombytes (from `../node_modules/react-native-randombytes`)
+  - react-native-udp (from `../node_modules/react-native-udp`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -293,10 +303,12 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNOS (from `../node_modules/react-native-os`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - TcpSockets (from `../node_modules/react-native-tcp`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -341,6 +353,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-document-picker"
   react-native-hotspotmanager:
     :path: "../node_modules/react-native-hotspotmanager"
+  react-native-randombytes:
+    :path: "../node_modules/react-native-randombytes"
+  react-native-udp:
+    :path: "../node_modules/react-native-udp"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -365,6 +381,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fast-image"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNOS:
+    :path: "../node_modules/react-native-os"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNReanimated:
@@ -373,6 +391,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  TcpSockets:
+    :path: "../node_modules/react-native-tcp"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -396,6 +416,8 @@ SPEC CHECKSUMS:
   react-native-camera: d5b131588a2d1f0ad377a321793f58794dbdc768
   react-native-document-picker: c36bf5f067a581657ecaf7124dcd921a8be19061
   react-native-hotspotmanager: f798b3b64babcacf9e2bca0867659326273ba61a
+  react-native-randombytes: 991545e6eaaf700b4ee384c291ef3d572e0b2ca8
+  react-native-udp: ccbd878f0f3b968217fc7e3d5eb5839fcaab8b6c
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
   React-RCTBlob: d89293cc0236d9cb0933d85e430b0bbe81ad1d72
@@ -408,12 +430,14 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
   RNGestureHandler: 946a7691e41df61e2c4b1884deab41a4cdc3afff
+  RNOS: 6f2f9a70895bbbfbdad7196abd952e7b01d45027
   RNPermissions: 409e55ed060f7e35d4a3dfc3a336f94a5811dec1
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 62284de159bbddba268edd282337afdb8771aaed
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
   SDWebImageWebPCoder: 947093edd1349d820c40afbd9f42acb6cdecd987
+  TcpSockets: 8d839b9b14f6f344d98e4642ded13ab3112b462d
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 4eac44b0a47e725128fbcd5e8f2aad4661aabcfa

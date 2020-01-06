@@ -1,3 +1,6 @@
+import {NativeModules, Platform} from 'react-native';
+var Aes = NativeModules.Aes;
+
 export const isvalidURL = str => {
   var pattern = new RegExp(
     '^(https?:\\/\\/)?' + // protocol
@@ -12,5 +15,18 @@ export const isvalidURL = str => {
 };
 
 export const getUniqueGroupName = () => {
-  return new Date().getTime().toString();
+  let test = encrypt(new Date().getTime().toString(), '123456');
+  return test;
 };
+
+const encrypt = (text, key) => {
+  return Aes.randomKey(32).then(iv => {
+    return Aes.encrypt(text, key, iv).then(cipher => ({
+      cipher,
+      iv,
+    }));
+  });
+};
+
+export const decrypt = (encryptedData, key) =>
+  Aes.decrypt(encryptedData.cipher, key, encryptedData.iv);
